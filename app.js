@@ -35,7 +35,7 @@ app.post('/sendMessage', async (req, res) => {
     run
       .on('textCreated', (text) => res.write(''))
       .on('textDelta', (textDelta, snapshot) => res.write(textDelta.value))
-      .on('toolCallCreated', (toolCall) => res.write(`\nassistant > ${toolCall.type}\n\n`))
+      .on('toolCallCreated', (toolCall) => res.write(`\n${toolCall.type}\n\n`))
       .on('toolCallDelta', (toolCallDelta, snapshot) => {
         if (toolCallDelta.type === 'code_interpreter') {
           if (toolCallDelta.code_interpreter.input) {
