@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const OpenAI = require('openai');
 const bodyParser = require('body-parser');
 
-const openai = new OpenAI({ apiKey: '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' });
+const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY });
 const app = express();
 const port = 3000;
 app.use(bodyParser.json());
