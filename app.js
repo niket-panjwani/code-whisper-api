@@ -4,9 +4,41 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const messageRoutes = require('./routes/messageRoutes');
 const errorHandler = require('./middlewares/errorHandler');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+require('dotenv').config();
 
 // Initialize an Express application
 const app = express();
+
+// Set the port to the value in the environment variable PORT, or 3000 if PORT is not set
+const port = process.env.PORT || 3000;
+const baseUrl = process.env.BASE_URL || 'http://localhost';
+
+// Initialize Swagger documentation
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0', // Specifies the OpenAPI version
+    info: {
+      title: 'Customer API',
+      version: '1.0.0', // Don't forget to include the version
+      description: 'Customer API Information',
+      contact: {
+        name: 'Amazing Developer',
+      },
+    },
+    servers: [
+      {
+        url: `${baseUrl}:${port}`,
+      },
+    ],
+  },
+  apis: ['./routes/*.js'], // Assumes your routes are in the routes directory and have a .js extension
+};
+
+// Initialize Swagger-jsdoc
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Use bodyParser middleware to parse JSON bodies
 app.use(bodyParser.json());
