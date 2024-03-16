@@ -11,9 +11,8 @@ require('dotenv').config();
 // Initialize an Express application
 const app = express();
 
-// Set the port to the value in the environment variable PORT, or 3000 if PORT is not set
-const port = process.env.PORT || 3000;
-const baseUrl = process.env.BASE_URL || 'http://localhost';
+// Set the base url for swagger
+const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
 
 // Initialize Swagger documentation
 const swaggerOptions = {
@@ -29,7 +28,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `${baseUrl}:${port}`,
+        url: `${baseUrl}`,
       },
     ],
   },
