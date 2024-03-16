@@ -46,7 +46,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Use messageRoutes for any routes that start with '/api'
-app.use('/api', messageRoutes);
+app.use('', messageRoutes);
 
 // Use errorHandler middleware for handling errors
 app.use(errorHandler);
