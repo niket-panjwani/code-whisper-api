@@ -19,9 +19,9 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0', // Specifies the OpenAPI version
     info: {
-      title: 'Customer API',
+      title: 'Code Whisper API',
       version: '1.0.0', // Don't forget to include the version
-      description: 'Customer API Information',
+      description: 'This API provides an interface to interact with the OpenAI API. It allows users to send messages to the OpenAI API and receive responses. The API handles the communication with OpenAI, processes the responses, and returns them in a user-friendly format. This simplifies the process of integrating OpenAI into your applications, as you only need to interact with this API.',
       contact: {
         name: 'Amazing Developer',
       },
@@ -46,7 +46,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Use messageRoutes for any routes that start with '/api'
-app.use('', messageRoutes);
+app.use('/api', messageRoutes);
 
 // Use errorHandler middleware for handling errors
 app.use(errorHandler);
