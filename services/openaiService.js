@@ -5,16 +5,25 @@ const OpenAI = require('openai');
 // Initialize a new OpenAI instance with your API key
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY });
 
+// Define a variable to store the assistant ID
+let assistantId = '';
+
 // Export an asynchronous function called processMessage
 exports.processMessage = async (content, res) => {
   try {
-    // Create a new assistant with OpenAI
-    const assistant = await openai.beta.assistants.create({
-      name: "Code Whisper",
-      instructions: "You are a coding assistant. Answer all software engineering questions to the best of your ability.",
-      tools: [{ type: "code_interpreter" }],
-      model: "gpt-4-turbo-preview"
-    });
+    // Check if an assistant has already been created
+    if (assistantId === '') {
+      // If not, create a new assistant with OpenAI
+      const assistant = await openai.beta.assistants.create({
+        name: "Code Whisper",
+        instructions: "You are a coding assistant. Answer all software engineering questions to the best of your ability.",
+        tools: [{ type: "code_interpreter" }],
+        model: "gpt-4-turbo-preview"
+      });
+
+      // Store the assistant ID
+      assistantId = assistant.id;
+    }
 
     // Create a new thread with OpenAI
     const thread = await openai.beta.threads.create();
@@ -27,7 +36,7 @@ exports.processMessage = async (content, res) => {
 
     // Start a run in the thread and stream the results
     const run = openai.beta.threads.runs.createAndStream(thread.id, {
-      assistant_id: assistant.id
+      assistant_id: assistantId
     });
 
     // Handle the different events that can occur during the run
