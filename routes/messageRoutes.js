@@ -12,7 +12,7 @@ const messageController = require('../controllers/messageController');
  * /api/sendMessage:
  *   post:
  *     summary: Send a message
- *     description: This endpoint sends a message
+ *     description: This endpoint sends a message to the OpenAI API and returns the response
  *     requestBody:
  *       required: true
  *       content:
