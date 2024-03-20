@@ -5,21 +5,22 @@ const OpenAI = require('openai');
 // Initialize a new OpenAI instance with your API key
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY });
 // Import the fetchThreadByUserid function from the dbService module
-const { fetchThreadByUserid } = require('./dbService');
+const { fetchThreadByUserid, createUserThread } = require('./dbService');
 
 // Export an asynchronous function called processMessage
-exports.processMessage = async (content, res) => {
+exports.processMessage = async (content, res, user_id) => {
   try {
     // Fetch Assistant ID from environment variables
     const assistantId = process.env.OPEN_AI_ASSISTANT_ID;
 
     //Fetch threadId from the database
-    const threadId = await fetchThreadByUserid('niket-panjwani');
+    const threadId = await fetchThreadByUserid(user_id);
 
     // Check if threadId exists and is valid; if not, create a new thread
     if (!threadId) {
       const thread = await openai.beta.threads.create();
       threadId = thread.id; // Save the thread ID for future use
+      createUserThread(user_id, threadId); // Create a new user thread in the database
     }
 
     // Send a message to the thread
