@@ -22,7 +22,7 @@ async function fetchThreadByUserid(userid) {
   const queryText = 'SELECT thread_id FROM user_threads WHERE user_id = $1';
   const queryParams = [userid];
   const result =  await queryDatabase(queryText, queryParams);
-  return result.rows.length > 0 ? result.rows[0].thread_id : null;
+  return result.length > 0 ? result[0].thread_id : null;
 }
 
 module.exports = {
