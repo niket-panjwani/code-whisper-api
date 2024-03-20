@@ -4,6 +4,8 @@ require('dotenv').config();
 const OpenAI = require('openai');
 // Initialize a new OpenAI instance with your API key
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY });
+// Import the fetchThreadByUserid function from the dbService module
+const { fetchThreadByUserid } = require('./dbService');
 
 // Export an asynchronous function called processMessage
 exports.processMessage = async (content, res) => {
