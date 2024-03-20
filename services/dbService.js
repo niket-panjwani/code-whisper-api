@@ -32,5 +32,6 @@ async function createUserThread(userid, threadId) {
 }
 
 module.exports = {
-  fetchThreadByUserid
+  fetchThreadByUserid,
+  createUserThread
 };
