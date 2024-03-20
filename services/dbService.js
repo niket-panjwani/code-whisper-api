@@ -19,7 +19,7 @@ async function queryDatabase(queryText, queryParams) {
 }
 
 async function fetchThreadByUserid(userid) {
-  const queryText = 'SELECT thread_id FROM user_threads WHERE userid = $1';
+  const queryText = 'SELECT thread_id FROM user_threads WHERE user_id = $1';
   const queryParams = [userid];
   return await queryDatabase(queryText, queryParams);
 }
