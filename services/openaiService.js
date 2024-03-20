@@ -5,24 +5,29 @@ const OpenAI = require('openai');
 // Initialize a new OpenAI instance with your API key
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY });
 
-
 // Export an asynchronous function called processMessage
 exports.processMessage = async (content, res) => {
   try {
     // Fetch Assistant ID from environment variables
     const assistantId = process.env.OPEN_AI_ASSISTANT_ID;
 
-    // Create a new thread with OpenAI
-    const thread = await openai.beta.threads.create();
+    //Fetch threadId from the database
+    const threadId = await fetchThreadByUserid('niket-panjwani');
+
+    // Check if threadId exists and is valid; if not, create a new thread
+    if (!threadId) {
+      const thread = await openai.beta.threads.create();
+      threadId = thread.id; // Save the thread ID for future use
+    }
 
     // Send a message to the thread
-    await openai.beta.threads.messages.create(thread.id, {
+    await openai.beta.threads.messages.create(threadId, {
       role: "user",
       content: content
     });
 
     // Start a run in the thread and stream the results
-    const run = openai.beta.threads.runs.createAndStream(thread.id, {
+    const run = openai.beta.threads.runs.createAndStream(threadId, {
       assistant_id: assistantId
     });
 
