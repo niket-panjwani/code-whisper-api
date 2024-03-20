@@ -14,7 +14,7 @@ exports.processMessage = async (content, res, user_id) => {
     const assistantId = process.env.OPEN_AI_ASSISTANT_ID;
 
     //Fetch threadId from the database
-    const threadId = await fetchThreadByUserid(user_id);
+    let threadId = await fetchThreadByUserid(user_id);
 
     // Check if threadId exists and is valid; if not, create a new thread
     if (!threadId) {
