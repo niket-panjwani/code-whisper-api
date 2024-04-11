@@ -19,7 +19,7 @@ async function queryDatabase(queryText, queryParams) {
 }
 
 async function fetchThreadByUserid(userid) {
-  const queryText = 'SELECT thread_id FROM user_threads WHERE user_id = $1';
+  const queryText = 'SELECT thread_id FROM user_threads WHERE user_id = $1 ORDER BY created_at DESC LIMIT 1';
   const queryParams = [userid];
   const result =  await queryDatabase(queryText, queryParams);
   return result.length > 0 ? result[0].thread_id : null;
