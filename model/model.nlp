@@ -1,0 +1,521 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "a,i,new,project,react,start,to,want": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,app,creat,do,how,i,react": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,applic,new,react,set,up": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,begin,project,react": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,i,name,new,project,react,start,to,want,{appname}": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,app,creat,do,how,i,name,react,{appname}": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,applic,name,new,react,set,up,{appname}": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,begin,name,project,react,{appname}": {
+            "intent": "CreateReactApp",
+            "domain": "default"
+          },
+          "a,i,new,next,project,start,to,want": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          },
+          "a,app,creat,do,how,i,next": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          },
+          "a,applic,new,next,set,up": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          },
+          "a,begin,next,project": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          },
+          "a,i,name,new,next,project,start,to,want,{appname}": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          },
+          "a,app,creat,do,how,i,name,next,{appname}": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          },
+          "a,applic,name,new,next,set,up,{appname}": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          },
+          "a,begin,name,next,project,{appname}": {
+            "intent": "CreateNextApp",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "CreateReactApp": "default",
+          "CreateNextApp": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "I want to start a new React project",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "How do I create a React app?",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Set up a new React application",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Begin a React project",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to start a new React project named {appName}",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "How do I create a React app named {appName}?",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Set up a new React application named {appName}",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Begin a React project named {appName}",
+            "intent": "CreateReactApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to start a new Next project",
+            "intent": "CreateNextApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "How do I create a Next app?",
+            "intent": "CreateNextApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Set up a new Next application",
+            "intent": "CreateNextApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Begin a Next project",
+            "intent": "CreateNextApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to start a new Next project named {appName}",
+            "intent": "CreateNextApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "How do I create a Next app named {appName}?",
+            "intent": "CreateNextApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Set up a new Next application named {appName}",
+            "intent": "CreateNextApp"
+          },
+          {
+            "domain": "default",
+            "utterance": "Begin a Next project named {appName}",
+            "intent": "CreateNextApp"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "i": 1,
+              "want": 1,
+              "to": 1,
+              "start": 1,
+              "a": 1,
+              "new": 1,
+              "react": 1,
+              "project": 1,
+              "how": 1,
+              "do": 1,
+              "creat": 1,
+              "app": 1,
+              "set": 1,
+              "up": 1,
+              "applic": 1,
+              "begin": 1,
+              "name": 1,
+              "{appname}": 1,
+              "next": 1
+            },
+            "intents": {
+              "CreateReactApp": 1,
+              "CreateNextApp": 1
+            },
+            "intentFeatures": {
+              "CreateReactApp": {
+                "i": 1,
+                "want": 1,
+                "to": 1,
+                "start": 1,
+                "a": 1,
+                "new": 1,
+                "react": 1,
+                "project": 1,
+                "how": 1,
+                "do": 1,
+                "creat": 1,
+                "app": 1,
+                "set": 1,
+                "up": 1,
+                "applic": 1,
+                "begin": 1,
+                "name": 1,
+                "{appname}": 1
+              },
+              "CreateNextApp": {
+                "i": 1,
+                "want": 1,
+                "to": 1,
+                "start": 1,
+                "a": 1,
+                "new": 1,
+                "next": 1,
+                "project": 1,
+                "how": 1,
+                "do": 1,
+                "creat": 1,
+                "app": 1,
+                "set": 1,
+                "up": 1,
+                "applic": 1,
+                "begin": 1,
+                "name": 1,
+                "{appname}": 1
+              }
+            },
+            "featuresToIntent": {
+              "i": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "want": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "to": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "start": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "a": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "new": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "react": [
+                "CreateReactApp"
+              ],
+              "project": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "how": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "do": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "creat": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "app": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "set": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "up": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "applic": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "begin": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "name": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "{appname}": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "next": [
+                "CreateNextApp"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "i",
+                "want",
+                "to",
+                "start",
+                "a",
+                "new",
+                "react",
+                "project",
+                "how",
+                "do",
+                "creat",
+                "app",
+                "set",
+                "up",
+                "applic",
+                "begin",
+                "name",
+                "{appname}",
+                "next"
+              ],
+              "intents": [
+                "CreateReactApp",
+                "CreateNextApp"
+              ],
+              "perceptrons": [
+                [
+                  0.5083044171333313,
+                  0.023320425301790237,
+                  0.023320425301790237,
+                  0.023320425301790237,
+                  2.330650806427002,
+                  0.6304885149002075,
+                  8.289993286132812,
+                  1.2384742498397827,
+                  0.48618072271347046,
+                  0.48618072271347046,
+                  0.48618072271347046,
+                  0.48618072271347046,
+                  0.6083692312240601,
+                  0.6083692312240601,
+                  0.6083692312240601,
+                  1.2161569595336914,
+                  0.003588545136153698,
+                  0.003588545136153698,
+                  -5.959989070892334,
+                  1.1649317601724238
+                ],
+                [
+                  0.5166143774986267,
+                  0.0266898050904274,
+                  0.0266898050904274,
+                  0.0266898050904274,
+                  2.346386671066284,
+                  0.6382359266281128,
+                  -5.941696643829346,
+                  1.2447850704193115,
+                  0.4882562458515167,
+                  0.4882562458515167,
+                  0.4882562458515167,
+                  0.4882562458515167,
+                  0.6099304556846619,
+                  0.6099304556846619,
+                  0.6099304556846619,
+                  1.2162903547286987,
+                  0.008065247908234596,
+                  0.008065247908234596,
+                  8.289948463439941,
+                  1.173517211440581
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "I want to start a new React project"
+      ],
+      [
+        "en",
+        "How do I create a React app?"
+      ],
+      [
+        "en",
+        "Set up a new React application"
+      ],
+      [
+        "en",
+        "Begin a React project"
+      ],
+      [
+        "en",
+        "I want to start a new React project named {appName}"
+      ],
+      [
+        "en",
+        "How do I create a React app named {appName}?"
+      ],
+      [
+        "en",
+        "Set up a new React application named {appName}"
+      ],
+      [
+        "en",
+        "Begin a React project named {appName}"
+      ],
+      [
+        "en",
+        "I want to start a new Next project"
+      ],
+      [
+        "en",
+        "How do I create a Next app?"
+      ],
+      [
+        "en",
+        "Set up a new Next application"
+      ],
+      [
+        "en",
+        "Begin a Next project"
+      ],
+      [
+        "en",
+        "I want to start a new Next project named {appName}"
+      ],
+      [
+        "en",
+        "How do I create a Next app named {appName}?"
+      ],
+      [
+        "en",
+        "Set up a new Next application named {appName}"
+      ],
+      [
+        "en",
+        "Begin a Next project named {appName}"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {}
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

@@ -1,0 +1,28 @@
+[
+  {
+      "intent": "CreateReactApp",
+      "utterances": [
+          "I want to start a new React project",
+          "How do I create a React app?",
+          "Set up a new React application",
+          "Begin a React project",
+          "I want to start a new React project named {appName}",
+          "How do I create a React app named {appName}?",
+          "Set up a new React application named {appName}",
+          "Begin a React project named {appName}"
+      ]
+  },
+  {
+      "intent": "CreateNextApp",
+      "utterances": [
+          "I want to start a new Next project",
+          "How do I create a Next app?",
+          "Set up a new Next application",
+          "Begin a Next project",
+          "I want to start a new Next project named {appName}",
+          "How do I create a Next app named {appName}?",
+          "Set up a new Next application named {appName}",
+          "Begin a Next project named {appName}"
+      ]
+  }
+]

@@ -6,6 +6,7 @@ const messageRoutes = require('./routes/messageRoutes');
 const errorHandler = require('./middlewares/errorHandler');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const nlpMiddleware = require('./middlewares/nlpMiddleware');
 require('dotenv').config();
 
 // Initialize an Express application
@@ -44,6 +45,9 @@ app.use(bodyParser.json());
 
 // Use cors middleware to enable Cross Origin Resource Sharing
 app.use(cors());
+
+// Use NLP middleware to interpret the request
+app.use(nlpMiddleware);
 
 // Use messageRoutes for any routes that start with '/api'
 app.use('/api', messageRoutes);
